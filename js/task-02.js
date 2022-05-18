@@ -24,8 +24,8 @@ const ingredients = [
 const list = document.querySelector('#ingredients');
 // console.log(list);
 
-
-const allListElements = ingredients.map(ingredient => {
+const createAllListElements = () => {
+  return ingredients.map(ingredient => {
   const listElement = document.createElement('li');
 
   listElement.textContent = ingredient;
@@ -35,5 +35,7 @@ const allListElements = ingredients.map(ingredient => {
 
  
 });
+}
+const allListElements = createAllListElements(ingredients);
 
 list.append(...allListElements);
