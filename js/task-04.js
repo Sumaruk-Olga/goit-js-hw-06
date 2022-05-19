@@ -15,21 +15,26 @@
 
 
 const refs = {
-    counterValue: document.querySelector('#value').textContent,
+    counterValue: document.querySelector('#value'),
     decrementButton: document.querySelector('button[data-action="decrement"]'),
     incrementButton: document.querySelector('button[data-action="increment"]'),
 };
+let value = 0;
 
-refs.counterValue = 0;
+function handlerDecrementClick  (event)  {
+    value -= 1;
+    // console.log('hi', value);
+    refs.counterValue.textContent = value;
+    // console.log(refs.counterValue.textContent);
+};
 
-console.log(refs.counterValue);
-console.log(refs.counterValue === 0);
+function handlerIncrementClick  (event)  {
+    value +=1;
+    // console.log('hi', value);    
+    refs.counterValue.textContent = value;
+    // console.log(refs.counterValue.textContent);
+};
 
-console.log(refs.decrementButton); 
-console.log(refs.decrementButton.dataset.action); 
-
-console.log(refs.incrementButton); 
-console.log(refs.incrementButton.dataset.action); 
-
-
+refs.decrementButton.addEventListener('click', handlerDecrementClick);
+refs.incrementButton.addEventListener('click', handlerIncrementClick);
 
