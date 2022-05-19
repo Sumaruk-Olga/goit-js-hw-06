@@ -16,7 +16,13 @@ const refs = {
 // console.log('span', refs.span.textContent);
 
 refs.input.addEventListener('input', (event) => { 
-    refs.span.textContent = event.currentTarget.value;
+
+    if (event.currentTarget.value === "") {
+        return refs.span.textContent = "Anonymous";
+    } else {
+        return refs.span.textContent = event.currentTarget.value;
+    }
+    
     // console.log(event.currentTarget.value);
     // console.log(refs.span.textContent);
 
